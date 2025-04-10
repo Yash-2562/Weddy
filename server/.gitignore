@@ -1,0 +1,30 @@
+node_modules
+.env
+.DS_Store
+build
+server/weddy-cd4ac-firebase-adminsdk-fbsvc-c5b9f9c563.json
+# in server/.gitignore
+firebase-adminsdk-*.json
+# Firebase credentials
+server/*.json
+# Block Firebase service account keys
+server/weddy-cd4ac-firebase-adminsdk-*.json
+
+# Node
+node_modules/
+.env
+.env.*
+firebase-adminsdk.json
+weddy-cd4ac-firebase-adminsdk-fbsvc-c5b9f9c563.json
+
+# Build/Logs
+build/
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db

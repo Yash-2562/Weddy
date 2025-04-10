@@ -1,0 +1,24 @@
+# Node
+node_modules/
+.env
+.DS_Store
+dist/
+build/
+*.log
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.vscode/
+.idea/
+*.swp
+
+# Optional Netlify/Verce/etc
+.netlify/
+.vercel/
+
+# OS specific
+Thumbs.db
