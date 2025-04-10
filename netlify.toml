@@ -1,7 +1,8 @@
 [build]
   base = "client"
-  publish = "client/dist"
+  publish = "dist"
   command = "npm run build"
 
-[context.production.environment]
+[build.environment]
   NODE_VERSION = "18"
+git add netlify.toml
