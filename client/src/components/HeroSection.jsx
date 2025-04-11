@@ -1,10 +1,10 @@
 import React from 'react';
-
+import heroImg from '../assets/Wedding-amico.png';
 export default function HeroSection() {
   return (
     <div className="flex flex-col lg:flex-row bg-primary p-6 min-h-[80vh]">
       <div className="w-full lg:w-1/2 flex justify-center items-center">
-      <img src="https://source.unsplash.com/400x500/?wedding,couple" alt="Couple" className="rounded-lg w-80" />
+      <img src={heroImg} alt="Couple" className="rounded-lg w-80" />
 
       </div>
       <div className="w-full lg:w-1/2 text-center lg:text-left p-6 flex flex-col justify-center">
