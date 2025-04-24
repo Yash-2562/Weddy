@@ -1,42 +1,49 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Dj from '../assets/dj.jpg';
+import food from '../assets/food.jpg';
+import art from '../assets/art.jpg';
+import saadi from '../assets/saadi.jpg';
+import photo from '../assets/photo.jpg';
+import planner from '../assets/planner.jpg';
+
 
 const modules = [
   {
     id: 1,
     title: 'DJ Booking',
     description: 'Top DJs for your wedding night!',
-    image: 'https://source.unsplash.com/300x200/?dj,music',
+    image: Dj,
   },
   {
     id: 2,
     title: 'Food Catering',
     description: 'Delicious menus for every taste.',
-    image: 'https://source.unsplash.com/300x200/?wedding,food',
+    image: food,
   },
   {
     id: 3,
     title: 'Bridal Makeup Artist',
     description: 'Get that dreamy bridal look.',
-    image: 'https://source.unsplash.com/300x200/?bridal,makeup',
+    image: art,
   },
   {
     id: 4,
     title: 'Wedding Venue',
     description: 'Find the perfect venue.',
-    image: 'https://source.unsplash.com/300x200/?wedding,venue',
+    image: saadi,
   },
   {
     id: 5,
     title: 'Photographer',
     description: 'Capture every magical moment.',
-    image: 'https://source.unsplash.com/300x200/?wedding,photographer',
+    image: photo,
   },
   {
     id: 6,
-    title: 'Videographer',
-    description: 'Relive your big day in HD!',
-    image: 'https://source.unsplash.com/300x200/?wedding,videography',
+    title: 'Wedding planners',
+    description: "Turning your 'I do' into a beautifully planned 'we did'. 💍✨",
+    image: planner,
   },
 ];
 
