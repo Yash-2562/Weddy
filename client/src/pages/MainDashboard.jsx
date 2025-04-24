@@ -73,7 +73,7 @@ export default function MainDashboard() {
 
               <div className="mt-4">
                 <button
-                  className="w-full bg-rose-600 hover:bg-rose-500 text-black py-2 px-4 rounded-md transition"
+                  className="w-full bg-rose-200 hover:bg-pink-500 font-semibold text-black py-2 px-4 rounded-xl transition"
                   onClick={() =>
                     navigate(`/booking/${module.title.toLowerCase().replace(/\s+/g, '-')}`)
                   }
