@@ -7,7 +7,7 @@ export default function Footer() {
         <p>© 2025 Weddy. All Rights Reserved.</p>
         <div className="flex gap-4">
           <a href="#">About</a>
-          <a href="#">Contact Us</a>
+          <a href="#">Contact </a>
         </div>
       </div>
     </footer>
