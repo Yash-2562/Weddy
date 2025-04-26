@@ -78,7 +78,7 @@ import BookingPage from "./pages/BookingPage";
 import PaymentPage from "./pages/PaymentPage";
 import Confirmation from "./pages/Confirmation";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+// import Sidebar from "./components/Sidebar";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -94,7 +94,7 @@ function App() {
     <div className="flex flex-col min-h-screen bg-[#fffaf7] text-gray-800">
       <Navbar />
       <div className="flex flex-1">
-        <Sidebar />
+        {/* <Sidebar /> */}
         <main className="flex-1 p-4">
           <Routes>
             <Route path="/" element={<Landing />} />

@@ -1,80 +1,34 @@
-// import React, { useEffect, useState } from "react";
-// import { auth } from "../firebase";
-// import { onAuthStateChanged, signOut } from "firebase/auth";
-// import { useNavigate } from "react-router-dom";
-
-// export default function Navbar() {
-//   const [user, setUser] = useState(null);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-//       setUser(currentUser);
-//     });
-
-//     return () => unsubscribe();
-//   }, []);
-
-//   const handleLogout = async () => {
-//     await signOut(auth);
-//     setUser(null);
-//     navigate("/auth");
-//   };
-
-//   return (
-//     <nav className="flex justify-between items-center px-6 py-4 bg-white shadow-md">
-//       <h1
-//         className="text-2xl font-bold text-rose-600 cursor-pointer"
-//         onClick={() => navigate("/")}
-//       >
-//         Weddy
-//       </h1>
-//       <ul className="flex gap-6 text-navy font-medium items-center">
-//         <li>
-//           <button onClick={() => navigate("/")}>Home</button>
-//         </li>
-//         <li>
-//           <button onClick={() => navigate("/our-story")}>Our Story</button>
-//         </li>
-//         {user ? (
-//           <>
-//             <li className="text-gray-700 capitalize">
-//   {user.email.split("@")[0]}
-// </li>
-//             <li>
-//               <button
-//                 onClick={handleLogout}
-//                 className="bg-rose-600 text-black px-4 py-1.5 rounded-md hover:bg-rose-500"
-//               >
-//                 Logout
-//               </button>
-//             </li>
-//           </>
-//         ) : (
-//           <li>
-//             <button
-//               onClick={() => navigate("/auth")}
-//               className="bg-rose-600 text-black px-4 py-1.5 rounded-md hover:bg-rose-500"
-//             >
-//               Login/Signup
-//             </button>
-//           </li>
-//         )}
-//       </ul>
-//     </nav>
-//   );
-// }
-
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate, NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [vendorOpen, setVendorOpen] = useState(false);
   const navigate = useNavigate();
+
+  const categories = [
+    { name: "Makeup Artists", icon: "💄" },
+    { name: "Planners", icon: "📝" },
+    { name: "Decorators", icon: "🎀" },
+    { name: "Caterers", icon: "🍽️" },
+    { name: "Jewellery", icon: "💍" },
+    { name: "Wedding Wear", icon: "👗" },
+    { name: "Entertainment", icon: "🎶" },
+    { name: "Gifts", icon: "🎁" },
+    { name: "Photographers", icon: "📸" },
+    { name: "Venues", icon: "🏛️" },
+    { name: "Mehendi Artists", icon: "🌿" },
+    { name: "Invitation Cards", icon: "✉️" },
+    { name: "DJs", icon: "🎧" },
+    { name: "Car Rentals", icon: "🚗" },
+    { name: "Choreographers", icon: "💃" },
+    { name: "Pandit Services", icon: "🛕" },
+    { name: "Honeymoon", icon: "🏖️" },
+  ];
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -93,7 +47,7 @@ export default function Navbar() {
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md relative z-50">
       <h1
-        className="text-2xl font-bold text-rose-600 cursor-pointer"
+        className="text-3xl font-extrabold text-cyan-600 cursor-pointer"
         onClick={() => navigate("/")}
       >
         Weddy
@@ -113,6 +67,7 @@ export default function Navbar() {
             Home
           </NavLink>
         </li>
+
         <li>
           <NavLink
             to="/our-story"
@@ -125,6 +80,41 @@ export default function Navbar() {
             Our Story
           </NavLink>
         </li>
+
+        {/* Vendors with Dropdown */}
+        <li
+          className="relative group"
+          onMouseEnter={() => setVendorOpen(true)}
+          onMouseLeave={() => setVendorOpen(false)}
+        >
+          <div className="flex items-center cursor-pointer text-gray-700 hover:text-rose-500">
+            Vendors <ChevronDown className="ml-1 h-4 w-4" />
+          </div>
+
+          {vendorOpen && (
+            <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-80 bg-white rounded-xl shadow-2xl p-4 grid grid-cols-2 gap-4 max-h-96 overflow-y-auto transition-all">
+              {categories.map((item, index) => (
+                <NavLink
+                  to={`/category/${item.name.toLowerCase().replace(/ /g, "-")}`}
+                  key={index}
+                  className="flex items-center gap-2 hover:text-cyan-600"
+                >
+                  <span>{item.icon}</span>
+                  <span className="text-sm">{item.name}</span>
+                </NavLink>
+              ))}
+              <div className="col-span-2 mt-4">
+                <NavLink
+                  to="/vendor-register"
+                  className="block w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white py-2 rounded-md text-sm font-semibold"
+                >
+                  I am a Vendor | Register Now
+                </NavLink>
+              </div>
+            </div>
+          )}
+        </li>
+
         {user && (
           <li>
             <NavLink
@@ -139,9 +129,10 @@ export default function Navbar() {
             </NavLink>
           </li>
         )}
+
         {user ? (
           <li className="relative group">
-            <div className="w-9 h-9 flex items-center justify-center bg-pink-600 text-black rounded-full cursor-pointer uppercase">
+            <div className="w-9 h-9 flex items-center justify-center bg-cyan-600 text-black rounded-full cursor-pointer uppercase">
               {user.email.charAt(0)}
             </div>
             <ul className="absolute hidden group-hover:flex flex-col top-10 right-0 bg-white shadow-md rounded-md py-2 min-w-[120px] text-sm z-50">
@@ -168,7 +159,7 @@ export default function Navbar() {
         )}
       </ul>
 
-      {/* Hamburger Menu Toggle */}
+      {/* Mobile Navigation */}
       <button
         className="lg:hidden text-rose-600"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -176,7 +167,6 @@ export default function Navbar() {
         {menuOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {/* Mobile Navigation */}
       {menuOpen && (
         <ul className="absolute right-6 top-16 bg-white shadow-lg rounded-md w-48 py-4 px-6 flex flex-col gap-4 text-gray-700 font-medium z-40">
           <li>
