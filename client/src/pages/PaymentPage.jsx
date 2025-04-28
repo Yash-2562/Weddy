@@ -12,7 +12,7 @@ export default function PaymentPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-      <h2 className="text-3xl font-bold text-rose-600 mb-6">Dummy Payment Gateway</h2>
+      <h2 className="text-3xl font-bold text-rose-600 mb-6">Powered by paypal</h2>
       <div className="w-full max-w-sm bg-pink-50 p-6 rounded-lg shadow">
         <input
           type="text"
