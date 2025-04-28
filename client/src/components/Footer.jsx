@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaPinterestP } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
@@ -7,7 +8,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
         {/* Logo and Tagline */}
         <div className="flex flex-col items-center md:items-start">
-          <h1 className="text-2xl font-bold text-cyan-500 mb-2">Weddy</h1>
+          <h1 className="text-2xl font-bold text-cyan-500 mb-2">
+          <FaHeart className="inline-block align-middle text-red-500 mr-2" />Weddy</h1>
           {/* <p className="text-sm text-gray-500 text-center md:text-left">
             from Matrimony.com group
           </p> */}

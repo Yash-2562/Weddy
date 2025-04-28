@@ -47,7 +47,7 @@ export default function Navbar() {
         <img
           src={Logo}
           alt="Weddy Logo"
-          className="h-10 w-10  object-contain transition-transform duration-300 group-hover:scale-110"
+          className="h-10 w-10 rounded-lg  object-contain transition-transform duration-300 group-hover:scale-110"
         />{' '}
         <span className="text-3xl  font-extrabold text-cyan-600">Weddy</span>{' '}
       </div>

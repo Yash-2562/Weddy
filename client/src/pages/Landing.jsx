@@ -19,8 +19,8 @@ export default function Landing() {
         <p className="text-white text-lg md:text-2xl max-w-2xl drop-shadow-md">
           "Where every love story becomes a magical celebration."
         </p>
-        <p className=" text-cyan-400 text-2xl font-extrabold">
-          Book now !
+        <p className="  md:block mt-6 text-white text-2xl font-normal">
+          one stop solution for DJ,Catering,Venue,Makeup and more !
         </p>
 
         {/* Mobile View Categories */}
