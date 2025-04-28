@@ -10,7 +10,7 @@ import Confirmation from "./pages/Confirmation";
 import Navbar from "./components/Navbar";
 
 // Import individual vendor category pages
-import Djs from './pages/Djs';
+import Djs from './pages/DJs';
 import Planners from './pages/Planners';
 import Photographers from './pages/Photographers';
 import MakeupArtists from './pages/MakeupArtists';
