@@ -1,7 +1,7 @@
 // VendorCard.js - This is the reusable card component
 const VendorCard = ({ name, location, price, imageUrl }) => {
     return (
-      <div className="bg-white p-4 rounded-lg shadow-lg">
+      <div className="bg-white  p-4 rounded-lg  shadow-lg">
         <img src={imageUrl} alt={name} className="w-full h-48 object-cover rounded-md" />
         <div className="mt-4">
           <h3 className="text-xl font-semibold">{name}</h3>

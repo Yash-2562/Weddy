@@ -8,7 +8,7 @@ import BookingPage from "./pages/BookingPage";
 import PaymentPage from "./pages/PaymentPage";
 import Confirmation from "./pages/Confirmation";
 import Navbar from "./components/Navbar";
-
+import OurStory from './pages/OurStory';
 // Import individual vendor category pages
 import Djs from './pages/DJs';
 import Planners from './pages/Planners';
@@ -21,6 +21,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from "./context/AuthContext";
+
 
 const ProtectedRoute = ({ children }) => {
   const { currentUser } = useAuth();
@@ -36,6 +37,8 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/our-story" element={<OurStory />} />
+
 
           <Route
             path="/dashboard"
