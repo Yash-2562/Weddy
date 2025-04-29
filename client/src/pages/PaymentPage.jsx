@@ -31,7 +31,7 @@ export default function PaymentPage() {
         />
         <button
           onClick={handlePayment}
-          className="w-full bg-rose-600 hover:bg-rose-500 text-black py-2 rounded-md"
+          className="w-full bg-cyan-600 hover:bg-green-500 text-black py-2 rounded-md"
         >
           Pay Now
         </button>

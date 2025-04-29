@@ -14,7 +14,7 @@ export default function Landing() {
         style={{ backgroundImage: `url(${background})` }}
       >
         <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-          Celebrate Love with <span className="text-cyan-400">Weddy</span>
+          Celebrate Love with <span className="text-cyan-400">Weddy 💖</span>
         </h1>
         <p className="text-white text-lg md:text-2xl max-w-2xl drop-shadow-md">
           "Where every love story becomes a magical celebration."

@@ -44,7 +44,7 @@ export default function BookingPage() {
           />
           <button
             type="submit"
-            className="w-full bg-rose-600 hover:bg-rose-500 text-black py-2 rounded-md"
+            className="w-full bg-cyan-600 hover:bg-green-500 text-white py-2 rounded-lg"
           >
             Proceed to Payment
           </button>

@@ -229,7 +229,6 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Logo from '../assets/logow.png';
-import OurStory from '../pages/OurStory';
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
@@ -283,16 +282,16 @@ export default function Navbar() {
           alt="Weddy Logo"
           className="h-10 w-10 rounded-lg object-contain transition-transform duration-300 group-hover:scale-110"
         />
-        <span className="text-3xl font-extrabold text-cyan-600">Weddy 💖</span>
+        <span className="text-3xl font-extrabold text-cyan-600">Weddy </span>
       </div>
 
       {/* Desktop Navigation */}
-      <ul className="hidden lg:flex gap-6 text-navy font-medium items-center">
+      <ul className="hidden lg:flex gap-6 text-navy font-medium items-center">📍
         {/* Location Dropdown */}
         <li className="relative group">
           <div
             onClick={() => setCityOpen(!cityOpen)}
-            className="flex items-center cursor-pointer text-gray-700 hover:text-rose-500"
+            className="flex items-center cursor-pointer text-red-700 hover:text-rose-500"
           >
             {selectedCity} <ChevronDown className="ml-1 h-4 w-4" />
           </div>

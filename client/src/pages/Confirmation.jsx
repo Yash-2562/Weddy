@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Confirmation() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/');
+    }, 4000); // Redirect to home page after 2 seconds
+
+    return () => clearTimeout(timer); // Clean up on unmount
+  }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-pink-100 px-4">
       <div className="text-center">

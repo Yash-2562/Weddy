@@ -6,6 +6,7 @@ import art from '../assets/art.jpg';
 import saadi from '../assets/saadi.jpg';
 import photo from '../assets/photo.jpg';
 import planner from '../assets/planner.jpg';
+import Contact from './Contact';
 
 
 const modules = [
@@ -53,7 +54,7 @@ export default function MainDashboard() {
   return (
     <div className="min-h-screen bg-pink-50 py-12 px-4">
       <h1 className="text-4xl text-center font-extrabold text-rose-700 mb-10">
-        Plan Your Dream Marraige with <span className="text-cyan-600">Weddy</span>
+        Plan Your Dream Marraige with <span className="text-cyan-600">Weddy 💫</span>
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -85,6 +86,10 @@ export default function MainDashboard() {
           </div>
         ))}
       </div>
+      <div className='mt-9'>
+      <Contact />
+      </div>
+      
     </div>
   );
 }
