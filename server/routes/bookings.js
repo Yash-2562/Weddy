@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const Booking = require("../models/Booking");
 
+router.get("/", async (req, res) => {
+  try {
+    const allBookings = await Booking.find();
+    res.json(allBookings);
+  } catch (err) {
+    res.status(500).json({ error: "Cannot fetch bookings" });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const newBooking = new Booking(req.body);
