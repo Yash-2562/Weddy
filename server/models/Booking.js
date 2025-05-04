@@ -7,6 +7,7 @@ const bookingSchema = new mongoose.Schema({
   location: String,
   date: String,
   userId: String,
+  userEmail: String,
 });
 
 module.exports = mongoose.model("Booking", bookingSchema);
