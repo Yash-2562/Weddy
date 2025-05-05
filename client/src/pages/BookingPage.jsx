@@ -138,7 +138,7 @@ export default function BookingPage() {
       const isLocalhost = window.location.hostname === "localhost";
       const API_URL = isLocalhost
         ? "http://localhost:5000"
-        : "https://weddy-2.onrender.com";  // 👈 replace with your actual Render URL
+        : "https://your-render-backend-url.com";  // 👈 replace with your actual Render URL
     
       const response = await axios.post(
         `${API_URL}/api/bookings`,
@@ -152,6 +152,7 @@ export default function BookingPage() {
       alert("Failed to save booking!");
     }
     
+  };
 
   return (
     <div className="min-h-screen bg-pink-50 flex items-center justify-center p-6">
