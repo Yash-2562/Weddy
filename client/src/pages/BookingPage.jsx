@@ -134,19 +134,24 @@ export default function BookingPage() {
     };
 
     try {
-      // 🚫 No token or auth header now - simple POST
+      // ✅ Auto-detect API URL based on environment
+      const isLocalhost = window.location.hostname === "localhost";
+      const API_URL = isLocalhost
+        ? "http://localhost:5000"
+        : "https://weddy-2.onrender.com";  // 👈 replace with your actual Render URL
+    
       const response = await axios.post(
-        "http://localhost:5000/api/bookings",
+        `${API_URL}/api/bookings`,
         bookingData
       );
-
+    
       console.log(response.data); // Optional: log success
       navigate("/payment"); // Redirect to payment page after booking is saved
     } catch (error) {
       console.error("Error saving booking:", error.response || error);
       alert("Failed to save booking!");
     }
-  };
+    
 
   return (
     <div className="min-h-screen bg-pink-50 flex items-center justify-center p-6">
