@@ -180,6 +180,7 @@ export default function BookingPage() {
           />
           <input
             type="date"
+            placeholder="Date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
