@@ -21,6 +21,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from "./context/AuthContext";
+import MyBookingsPage from "@components/MyBookingsPage";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/our-story" element={<OurStory />} />
+          <Route path="/my-bookings" element={<MyBookingsPage />} />
 
 
           <Route
