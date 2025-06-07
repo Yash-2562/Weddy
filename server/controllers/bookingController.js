@@ -1,41 +1,13 @@
-// // const Booking = require("../models/Booking");
 
-// // ✅ Create a new booking (uses logged-in user info)
-// exports.createBooking = async (req, res) => {
-//   try {
-//     const booking = new Booking({
-//       ...req.body,
-//       userEmail: req.user.email,  // Always from the token
-//       userId: req.user.uid,       // Optional but useful
-//     });
-
-//     await booking.save();
-//     res.status(201).json({ message: "Booking saved!", booking });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: err.message });
-//   }
-// };
-
-// // ✅ Get bookings for the logged-in user
-// exports.getBookings = async (req, res) => {
-//   try {
-//     const bookings = await Booking.find({ userEmail: req.user.email });
-//     res.status(200).json(bookings);
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ error: err.message });
-//   }
-// };
 const Booking = require("../models/Booking");
 
-// ✅ Create a booking (no token required)
 const createBooking = async (req, res) => {
-  console.log("POST request received:", req.body);
+  console.log("POST /api/bookings received:", req.body);
   try {
-    const { name, email, date, location, service } = req.body;
+    const { name, email, date, location, service, userId, userEmail } = req.body;
 
-    if (!name || !email || !date || !location || !service) {
+    
+    if (!name || !email || !date || !location || !service || !userId || !userEmail) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
@@ -45,6 +17,8 @@ const createBooking = async (req, res) => {
       date,
       location,
       service,
+      userId,
+      userEmail,
     });
 
     await newBooking.save();
@@ -55,11 +29,22 @@ const createBooking = async (req, res) => {
   }
 };
 
-// ✅ Get all bookings (no token required)
-const getBookings = async (req, res) => {
+// Get all bookings for a user by userId or userEmail
+const getUserBookings = async (req, res) => {
   try {
-    const allBookings = await Booking.find();
-    res.json(allBookings);
+    const { userId, userEmail } = req.params;
+
+    if (!userId && !userEmail) {
+      return res.status(400).json({ message: "User ID or Email is required." });
+    }
+
+  
+    const query = {};
+    if (userId) query.userId = userId;
+    if (userEmail) query.userEmail = userEmail;
+
+    const bookings = await Booking.find(query).sort({ date: 1 }); 
+    res.status(200).json(bookings);
   } catch (err) {
     console.error("Error fetching bookings:", err);
     res.status(500).json({ message: "Server error fetching bookings." });
@@ -68,5 +53,5 @@ const getBookings = async (req, res) => {
 
 module.exports = {
   createBooking,
-  getBookings,
+  getUserBookings,
 };
